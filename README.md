@@ -12,6 +12,9 @@ An example of using Gurobi to compute a minimal edge cover
 
 2. Point your browser at http://localhost:8000
 
+3. Add some nodes with by clicking your mouse in the demo area.
+
+4. Click "Compute Edge Cover" to find the minimal edge cover.
 
 # Performing an optimization
 
