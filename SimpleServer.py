@@ -15,10 +15,16 @@ else:
     PORT = 8000
 
 
+import edgecover
+
 def handleoptimize(jsdict):
     if 'vertices' in jsdict and 'edges' in jsdict:
-        print 'Inside!'
-        return {'cover': [0, 1] }
+        print 'Inside handle optimize!'
+        print jsdict['vertices']
+        print jsdict['edges']
+        cover = edgecover.optimize(jsdict['vertices'], jsdict['edges'])
+        print 'cover', cover
+        return {'cover': cover }
 
 class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 

@@ -197,8 +197,22 @@ function compute() {
 
 function serverResponse(error, data) {
    console.log('serverResponse');
-   console.log('error', error);
    console.log('data', data);
+   if (!error) {
+      if ('cover' in data) {
+        var cover = data.cover;
+        console.log('cover', cover);
+        d3.selectAll('.node')
+          .each(function(d) {
+                  var header = d3.select(this);
+                  if (cover.indexOf(d.index) > -1) {
+                      header.style({'fill': 'red'});
+                  } else {
+                      header.style({'fill': 'black'});
+                  }
+                });
+      }
+   }
 }
 
 </script>
