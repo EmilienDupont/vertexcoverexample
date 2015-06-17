@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+                      tex2jax: {inlineMath: [['$', '$'], ['\\(','\\)']]},
+                      TeX: { equationNumbers: {autoNumber: "AMS"} },
+                      "HTML-CSS": { showMathMenu: false,
+                                    scale: 90 }
+
+                     });
+</script>
 <style>
 
 rect {
@@ -23,6 +34,61 @@ rect {
 
 </style>
 <body>
+  <ul id="nav">
+    <li class="current"><a href="#intro">Intro</a></li>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#model">Model</a></li>
+    <li><a href="#implementation">Implementation</a></li>
+    <li><a href="#demo">Live Demo</a></li>
+  </ul>
+  <div id="container">
+    <div class="section" id="intro">
+      <h1>Edge Covering</h1>
+        <subtitle>with integer programming and Gurobi</subtitle>
+    </div>
+
+    <div class="section" id="problem">
+      <h2><a href="#problem" name="problem">Problem Description</a></h2>
+      Problem description goes here
+    </div>
+    <div class="section" id="model">
+      <h2><a href="#model" name="model">Mathematical Model</a></h2>
+      Model description goes here
+
+      Let $V$ be the set of vertices in our graph and $E$ the set of edges.
+      We define the variables
+      \[
+      x_v = \left\{\begin{array}{ll}
+             1 & \text{if  $v \in V$ is selected}\\
+             0 & \mathrm{otherwise}
+            \end{array}\right.
+      \]
+
+      The minimal edge cover is given by the following model
+      \[
+      \begin{array}{ll}
+      \text{minimize} & \sum_{v \in V} x_v \\
+      \text{subject to} & x_u + x_v \ge 1, \quad \forall (u,v) \in E \\
+                        & x_v \in \{ 0, 1 \} \quad \forall v \in E
+      \end{array}
+      \]
+    </div>
+    <div class="section" id="implementation">
+      <h2><a href="#implementation" name="implementation">Implementation</a></h2>
+      <p>Below is the full implementation of the model (and the associated data) in
+        Gurobi's Python interface:
+      </p>
+      <pre>
+        from gurobipy import *
+      </pre>
+    </div>
+    <div class="section" id="demo">
+      <h2><a href="#demo" name="demo">Live Demo</a></h2>
+      <div id="demoarea">
+      </div>
+      <button>Compute Edge Cover</button>
+    </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script>
 
@@ -38,7 +104,7 @@ var force = d3.layout.force()
     .charge(-60)
     .on("tick", tick);
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#demoarea").append("svg")
     .attr("width", width)
     .attr("height", height)
     .on("mousemove", mousemove)
