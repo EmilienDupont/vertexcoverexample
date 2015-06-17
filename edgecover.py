@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from gurobipy import *
 
 vertices  = range(5)
