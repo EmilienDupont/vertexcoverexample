@@ -1,2 +1,5 @@
 all:
-	python -m SimpleHTTPServer
+	./SimpleServer.py
+
+test:
+	./edgecover.py

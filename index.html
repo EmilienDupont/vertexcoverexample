@@ -86,7 +86,7 @@ rect {
       <h2><a href="#demo" name="demo">Live Demo</a></h2>
       <div id="demoarea">
       </div>
-      <button>Compute Edge Cover</button>
+      <button onclick="compute()">Compute Edge Cover</button>
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
@@ -171,6 +171,34 @@ function restart() {
       .call(force.drag);
 
   force.start();
+}
+
+function compute() {
+  var vertices = [];
+  var edges    = [];
+  var edge;
+  for (var i = 0; i < nodes.length; i++) {
+     vertices.push(nodes[i].index);
+  }
+  for (i = 0; i < links.length; i++) {
+     edge = links[i];
+     if (edge.source.index !== edge.target.index) {
+       edges.push([edge.source.index, edge.target.index]);
+     }
+  }
+  console.log('vertices', vertices);
+  console.log('edges', edges);
+
+  d3.json('/resource')
+    .header('Content-Type', 'application/json')
+    .post(JSON.stringify({'vertices': vertices,
+                          'edges': edges }), serverResponse);
+}
+
+function serverResponse(error, data) {
+   console.log('serverResponse');
+   console.log('error', error);
+   console.log('data', data);
 }
 
 </script>
