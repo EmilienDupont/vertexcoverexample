@@ -15,14 +15,14 @@ else:
     PORT = 8000
 
 
-import edgecover
+import vertexcover
 
 def handleoptimize(jsdict):
     if 'vertices' in jsdict and 'edges' in jsdict:
         print 'Inside handle optimize!'
         print jsdict['vertices']
         print jsdict['edges']
-        cover = edgecover.optimize(jsdict['vertices'], jsdict['edges'])
+        cover = vertexcover.optimize(jsdict['vertices'], jsdict['edges'])
         print 'cover', cover
         return {'cover': cover }
 

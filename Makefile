@@ -2,4 +2,4 @@ all:
 	./SimpleServer.py
 
 test:
-	./edgecover.py
+	./vertexcover.py

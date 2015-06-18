@@ -1,5 +1,5 @@
-# edgecoverexample
-An example of using Gurobi to compute a minimal edge cover
+# vertexcoverexample
+An example of using Gurobi to compute a minimal vertex cover
 
 ![](screenshot.png?raw=true)
 
@@ -14,11 +14,11 @@ An example of using Gurobi to compute a minimal edge cover
 
 3. Add some nodes with by clicking your mouse in the demo area.
 
-4. Click "Compute Edge Cover" to find the minimal edge cover.
+4. Click "Compute Vertex Cover" to find the minimal vertex cover.
 
 # Performing an optimization
 
-To just solve the edge cover model (without running a web server) do:
+To just solve the vertex cover model (without running a web server) do:
 
 ```
 make test

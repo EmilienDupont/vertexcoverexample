@@ -43,7 +43,7 @@ rect {
   </ul>
   <div id="container">
     <div class="section" id="intro">
-      <h1>Edge Covering</h1>
+      <h1>Vertex Cover</h1>
         <subtitle>with integer programming and Gurobi</subtitle>
     </div>
 
@@ -58,7 +58,7 @@ rect {
 
 
       <p>Let $V$ be the set of vertices in our graph and $E$ the set of edges.
-      We are interested in computing a <i>edge cover</i>: a set of
+      We are interested in computing a <i>vertex cover</i>: a set of
       vertices $C$ that cover all edges in the graph (i.e. so that each edge
       in the graph is connected to at least one vertex in the cover).
       </p>
@@ -75,7 +75,7 @@ rect {
       \]
       </p>
 
-      <p>Then the following model can be solved to obtain a minimal edge cover
+      <p>Then the following model can be solved to obtain a minimal vertex cover
       \[
       \begin{array}{ll}
       \text{minimize} & \sum_{v \in V} x_v \\
@@ -122,7 +122,7 @@ rect {
       <h2><a href="#demo" name="demo">Live Demo</a></h2>
       <div id="demoarea">
       </div>
-      <button onclick="compute()">Compute Edge Cover</button>
+      <button onclick="compute()">Compute Vertex Cover</button>
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
