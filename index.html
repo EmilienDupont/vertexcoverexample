@@ -155,7 +155,7 @@ rect {
     <div class="section" id="model">
       <h2><a href="#model" name="model">Mathematical Model</a></h2>
 
-      <p>Model description goes here.</p>
+      <p>Model description goes here. This is a test again.</p>
 
 
       <p>Let $V$ be the set of vertices in our graph and $E$ the set of edges.
@@ -335,7 +335,7 @@ function compute() {
   console.log('vertices', vertices);
   console.log('edges', edges);
 
-  d3.json('/resource')
+  d3.json('/vertexcover')
     .header('Content-Type', 'application/json')
     .post(JSON.stringify({'vertices': vertices,
                           'edges': edges }), serverResponse);

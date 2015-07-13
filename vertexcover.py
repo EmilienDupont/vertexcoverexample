@@ -38,6 +38,8 @@ def optimize(vertices, edges):
         v = edge[1]
         print 'Edge (%d, %d)' % (u, v), vertexVars[u].X, vertexVars[v].X
 
+    print 'Testing!!!'
+
     return cover
 
 if __name__ == '__main__':
